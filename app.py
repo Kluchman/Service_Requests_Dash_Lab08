@@ -8,6 +8,8 @@ df = pd.read_csv('Webmapping\Lab08\service_311.csv', encoding='ISO-8859-1')
 
 app = Dash()
 
+server=app.server
+
 # Layout
 app.layout = html.Div([
     html.Div(children='This is a dynamic table and chart showing service requests in Boston MA', style={'color': 'red'}),
