@@ -2,13 +2,15 @@ import pandas as pd
 import dash
 from dash import dcc, Dash, html, dash_table, callback, Output, Input
 import plotly.express as px
+import os
 
 # Load data
-df = pd.read_csv('service_311.csv', encoding='ISO-8859-1')
+df = pd.read_csv('Webmapping/Lab08/service_311.csv', encoding='ISO-8859-1')
 
 app = Dash()
 
-server=app.server
+# Expose Flask server for deployment
+server = app.server
 
 # Layout
 app.layout = html.Div([
@@ -20,7 +22,6 @@ app.layout = html.Div([
         page_size=10, 
         id='data_table'
     ),
-    #h
     dcc.Graph(
         figure=px.histogram(
             df, 
@@ -31,7 +32,6 @@ app.layout = html.Div([
         ), 
         id='graph_his'
     ),
-    
     dcc.RadioItems(
         options=['daytime', 'nighttime', 'All'], 
         value='All', 
@@ -68,4 +68,6 @@ def update_content(time):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Bind to the port defined by the PORT environment variable or default to 8080
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port, debug=True)
