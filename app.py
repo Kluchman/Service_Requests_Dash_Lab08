@@ -4,7 +4,7 @@ from dash import dcc, Dash, html, dash_table, callback, Output, Input
 import plotly.express as px
 
 # Load data
-df = pd.read_csv('Webmapping\Lab08\service_311.csv', encoding='ISO-8859-1')
+df = pd.read_csv('service_311.csv', encoding='ISO-8859-1')
 
 app = Dash()
 
