@@ -5,7 +5,7 @@ import plotly.express as px
 import os
 
 # Load data
-df = pd.read_csv('Webmapping/Lab08/service_311.csv', encoding='ISO-8859-1')
+df = pd.read_csv('service_311.csv', encoding='ISO-8859-1')
 
 app = Dash()
 
