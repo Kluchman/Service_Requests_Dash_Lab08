@@ -8,7 +8,7 @@ import os
 df = pd.read_csv(
     'service_311.csv', 
     encoding='ISO-8859-1', 
-    usecols=['weekday', 'reason', 'time_of_day', 'neighborhood']  # Specify required columns
+    usecols=['weekday', 'reason', 'time_of_day', 'neighborhood'])  # Specify required columns
 
 app = Dash()
 
